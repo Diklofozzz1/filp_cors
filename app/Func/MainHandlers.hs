@@ -43,6 +43,8 @@
                         Diagnosis "Vertigo" [Symptoms "vomiting", Symptoms "headache", Symptoms "nausea", Symptoms "spinningmovements"] ["Taking pills", "Drop counter"] ["Phenergan", "Antivert", "Dramamine II"]]
 
 
+
+    -- fatigue, cough
     -- writeFile "./app/txt/diags.txt" (show testDiagnosis)
     
     -- -- print(show(gradator diags testSymptom))

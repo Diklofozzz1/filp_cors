@@ -8,7 +8,7 @@ import Ent.Diagnosis
 import Func.DiagFinder (findDiagnos)
 import Func.DiagGradation (gradator)
 import Func.Sorter (sortGT)
-import Func.Parser (composerIn, composerOut)
+import Func.Parser (composerIn, composerOut, slice, checker)
 
 import Func.Executor
 import Func.IDPacker as ID
@@ -47,6 +47,7 @@ connector builder = do
             let diags = findDiagnos arr res
             let sortedDiag = sortBy sortGT (gradator diags res) 
             
+            
             case sortedDiag == [] of 
                 True -> do 
                     let emptyDiagStr :: String = "Sorry! We don't know what's wrong with you! You better see a doctor"
@@ -54,8 +55,9 @@ connector builder = do
                     changeTextBuffer builder ID.packTextBufferId packedEmptyDiagStr
                     print $ "|UNKOWN ILLNESS|: res: " ++ show packedEmptyDiagStr
                 _ -> do
-                    let actDiag = head sortedDiag
-                    let foo = composerOut actDiag
+                    let actDiag = slice 0 5 sortedDiag
+                    let checkedDiags = checker actDiag res
+                    let foo = composerOut checkedDiags
                     let packedDiagStr :: Text = pack foo 
                     changeTextBuffer builder ID.packTextBufferId packedDiagStr
                     print $ "|ILLNESS FOUND|: res: " ++ show packedDiagStr

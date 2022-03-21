@@ -33,4 +33,4 @@ gradator (diag:diags) sympts
   |  areEqual diag sympts == True = [(cons, diag)]
   |  otherwise = ((concatinator diag sympts), diag) : gradator diags sympts
   where 
-     cons :: Int = 100
+     cons :: Int = length sympts

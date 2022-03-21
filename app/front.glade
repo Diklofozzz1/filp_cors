@@ -6,7 +6,6 @@
   <object class="GtkWindow" id="mainWindow">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
-    <property name="resizable">False</property>
     <property name="default-width">600</property>
     <property name="default-height">300</property>
     <child>
@@ -50,16 +49,23 @@
           </packing>
         </child>
         <child>
-          <object class="GtkTextView" id="diseaseOutput">
+          <object class="GtkScrolledWindow">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
-            <property name="margin-start">10</property>
-            <property name="margin-end">10</property>
-            <property name="editable">False</property>
-            <property name="wrap-mode">word</property>
-            <property name="justification">center</property>
-            <property name="cursor-visible">False</property>
-            <property name="buffer">textbuffer1</property>
+            <property name="shadow-type">in</property>
+            <child>
+              <object class="GtkTextView" id="diseaseOutput">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">10</property>
+                <property name="editable">False</property>
+                <property name="wrap-mode">word</property>
+                <property name="justification">center</property>
+                <property name="cursor-visible">False</property>
+                <property name="buffer">textbuffer1</property>
+              </object>
+            </child>
           </object>
           <packing>
             <property name="expand">True</property>

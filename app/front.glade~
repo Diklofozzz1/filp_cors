@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
+<!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkTextBuffer" id="textbuffer1"/>
   <object class="GtkWindow" id="mainWindow">
     <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="resizable">False</property>
-    <property name="default-width">600</property>
-    <property name="default-height">300</property>
+    <property name="can_focus">False</property>
+    <property name="default_width">600</property>
+    <property name="default_height">300</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
-        <property name="can-focus">False</property>
+        <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkEntry" id="symtomEntry">
             <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="margin-start">10</property>
-            <property name="margin-end">10</property>
+            <property name="can_focus">True</property>
+            <property name="margin_start">10</property>
+            <property name="margin_end">10</property>
             <property name="xalign">0.5</property>
-            <property name="placeholder-text" translatable="yes">Еnter more then two of your symptoms separated by commas. For example (cough, sore throat, head ache)</property>
-            <property name="input-hints">GTK_INPUT_HINT_LOWERCASE | GTK_INPUT_HINT_NO_EMOJI | GTK_INPUT_HINT_NONE</property>
+            <property name="placeholder_text" translatable="yes">Еnter more then two of your symptoms separated by commas. For example (cough, sore throat, head ache)</property>
+            <property name="input_hints">GTK_INPUT_HINT_LOWERCASE | GTK_INPUT_HINT_NO_EMOJI | GTK_INPUT_HINT_NONE</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -35,12 +37,12 @@
           <object class="GtkButton" id="symtomEntryButton">
             <property name="label" translatable="yes">Find your disease</property>
             <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="has-focus">True</property>
-            <property name="is-focus">True</property>
-            <property name="can-default">True</property>
-            <property name="has-default">True</property>
-            <property name="receives-default">True</property>
+            <property name="can_focus">True</property>
+            <property name="has_focus">True</property>
+            <property name="is_focus">True</property>
+            <property name="can_default">True</property>
+            <property name="has_default">True</property>
+            <property name="receives_default">True</property>
             <property name="halign">center</property>
           </object>
           <packing>
@@ -50,16 +52,23 @@
           </packing>
         </child>
         <child>
-          <object class="GtkTextView" id="diseaseOutput">
+          <object class="GtkScrolledWindow">
             <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="margin-start">10</property>
-            <property name="margin-end">10</property>
-            <property name="editable">False</property>
-            <property name="wrap-mode">word</property>
-            <property name="justification">center</property>
-            <property name="cursor-visible">False</property>
-            <property name="buffer">textbuffer1</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTextView" id="diseaseOutput">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="margin_start">10</property>
+                <property name="margin_end">10</property>
+                <property name="editable">False</property>
+                <property name="wrap_mode">word</property>
+                <property name="justification">center</property>
+                <property name="cursor_visible">False</property>
+                <property name="buffer">textbuffer1</property>
+              </object>
+            </child>
           </object>
           <packing>
             <property name="expand">True</property>
@@ -72,30 +81,33 @@
     </child>
   </object>
   <object class="GtkDialog" id="warnDialog">
-    <property name="can-focus">False</property>
+    <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
-    <property name="default-width">260</property>
-    <property name="default-height">200</property>
-    <property name="type-hint">dialog</property>
+    <property name="default_width">260</property>
+    <property name="default_height">200</property>
+    <property name="type_hint">dialog</property>
     <property name="deletable">False</property>
-    <property name="transient-for">mainWindow</property>
-    <property name="attached-to">mainWindow</property>
+    <property name="transient_for">mainWindow</property>
+    <property name="attached_to">mainWindow</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="warningWindow">
-        <property name="can-focus">False</property>
+        <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
-            <property name="can-focus">False</property>
-            <property name="layout-style">end</property>
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="closeWarningWindowBtn">
                 <property name="label" translatable="yes">Close</property>
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="receives-default">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -113,7 +125,7 @@
         <child>
           <object class="GtkLabel">
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
+            <property name="can_focus">False</property>
             <property name="label" translatable="yes">You can`t put empty string or only one symptom! Please try again!</property>
           </object>
           <packing>
