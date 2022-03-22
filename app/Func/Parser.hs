@@ -77,6 +77,7 @@ checker [] _ = []
 checker _ [] = [] 
 checker (x:xs) sympt
     | cons == length(sympt) = founded ++ [x]
+    | cons == (length(sympt)-1) = founded ++ [x]
     | otherwise = founded
     where
       cons = fst x

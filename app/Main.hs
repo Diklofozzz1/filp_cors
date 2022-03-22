@@ -46,17 +46,17 @@ connector builder = do
 
             let diags = findDiagnos arr res
             let sortedDiag = sortBy sortGT (gradator diags res) 
+            let actDiag = slice 0 5 sortedDiag
+            let checkedDiags = checker actDiag res
             
             
-            case sortedDiag == [] of 
+            case checkedDiags == [] of 
                 True -> do 
                     let emptyDiagStr :: String = "Sorry! We don't know what's wrong with you! You better see a doctor"
                     let packedEmptyDiagStr :: Text = pack emptyDiagStr
                     changeTextBuffer builder ID.packTextBufferId packedEmptyDiagStr
                     print $ "|UNKOWN ILLNESS|: res: " ++ show packedEmptyDiagStr
                 _ -> do
-                    let actDiag = slice 0 5 sortedDiag
-                    let checkedDiags = checker actDiag res
                     let foo = composerOut checkedDiags
                     let packedDiagStr :: Text = pack foo 
                     changeTextBuffer builder ID.packTextBufferId packedDiagStr
